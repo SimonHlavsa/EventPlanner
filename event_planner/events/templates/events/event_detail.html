@@ -1,0 +1,37 @@
+{% extends "event_planner/base.html" %}
+
+{% block content %}
+    <main class="container">
+        <div class="d-flex justify-content-center text-align-center my-4 text-light"><h1 class="">Event Planner</h1></div>
+
+        <div class="mt-5">
+            {% for event in data_event %}
+                <div class="accordion mt-2">
+                    <div class="accordion-item event-detail-field">
+                        <h2 class="accordion-header event-name-field">
+                            <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#{{event.id}}" aria-expanded="false" aria-controls="{{event.id}}">
+                                {{event.name}}
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="{{event.id}}" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Location: {{event.location}}</p>
+                                <p>Event Start: {{event_start}}</p>
+                                <p>Details: {{event.description}}</p>
+                                <p><strong>Hosts</strong></p>
+                                <ul>
+                                    {% for invitation in data_invitations %}
+                                        {% if invitation.event == event %}
+                                            <li>{{invitation.user}} - {{invitation.status}}</li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+{% endblock %}

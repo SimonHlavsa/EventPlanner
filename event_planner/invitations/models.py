@@ -14,7 +14,7 @@ class Invitations(models.Model):
         ("accepted", "Accepted"),
         ("declined", "Declined"),
     ]
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES)
+    status = models.CharField(max_length=20, blank="true", default="Invited", choices=STATUS_CHOICES)
 
     def set_status(self, status):
         if status in self.STATUS_CHOICES:
