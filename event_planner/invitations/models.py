@@ -4,7 +4,7 @@ from events.models import Event
 from django.utils import timezone
 
 
-class UserEventStatus(models.Model):
+class Invitations(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
