@@ -9,11 +9,11 @@
                 <div class="accordion mt-2">
                     <div class="accordion-item event-detail-field">
                         <h2 class="accordion-header event-name-field">
-                            <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#{{event.id}}" aria-expanded="false" aria-controls="{{event.id}}">
+                            <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{event.id}}" aria-expanded="false" aria-controls="collapse{{event.id}}">
                                 {{event.name}}
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="{{event.id}}" data-bs-parent="#accordionExample">
+                        <div id="collapse{{event.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{event.id}}" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <p>Location: {{event.location}}</p>
                                 <p>Event Start: {{event_start}}</p>
@@ -33,5 +33,4 @@
             {% endfor %}
         </div>
     </main>
-
 {% endblock %}
